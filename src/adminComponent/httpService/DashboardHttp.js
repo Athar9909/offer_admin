@@ -1303,3 +1303,72 @@ export async function bannerStatus(id) {
     return { error };
   }
 }
+
+export async function AddStaff(formData) {
+  try {
+    const { data } = await appHttpService.post(
+      `${process.env.REACT_APP_APIENDPOINT}api/admin/addStaff`,
+      formData
+    );
+    if (!data?.error) {
+      Swal.fire({
+        title: data?.message,
+        icon: "success",
+        confirmButtonText: "Okay",
+        confirmButtonColor: "#da3c3b",
+      });
+    }
+    if (data?.error) {
+      Swal.fire({
+        title: data?.message,
+        icon: "error",
+        confirmButtonText: "Okay",
+        confirmButtonColor: "#da3c3b",
+      });
+    }
+    return { data };
+  } catch (error) {
+    if (error.response) {
+      console.log(error?.response);
+      Swal.fire({
+        title: "401 Error!",
+        text: "",
+        icon: "error",
+        confirmButtonText: "Okay",
+        confirmButtonColor: "#da3c3b",
+      });
+    }
+    return { error };
+  }
+}
+
+export async function getAllStaff(formData) {
+  try {
+    const { data } = await appHttpService.post(
+      `${process.env.REACT_APP_APIENDPOINT}api/admin/allStaff`,
+      formData
+    );
+    console.log(data);
+    if (data?.error) {
+      Swal.fire({
+        title: data?.message,
+        icon: "error",
+        confirmButtonText: "Okay",
+        confirmButtonColor: "#da3c3b",
+      });
+    }
+    return { data };
+  } catch (error) {
+    if (error.response) {
+      console.log(error?.response);
+      Swal.fire({
+        title: "401 Error!",
+        text: "",
+        icon: "error",
+        confirmButtonText: "Okay",
+        confirmButtonColor: "#da3c3b",
+      });
+    }
+    return { error };
+  }
+}

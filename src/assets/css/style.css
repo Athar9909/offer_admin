@@ -1938,7 +1938,7 @@ input::-webkit-inner-spin-button {
   font-size: 13px;
   position: absolute;
   top: 8px;
-  right:23%;
+  right: 23%;
   max-width: 12rem;
 }
 .design_outter_comman {
@@ -1972,4 +1972,40 @@ input::-webkit-inner-spin-button {
   height: 10rem !important;
   border-radius: 12px;
   margin-left: 0;
+}
+
+.module .css-13cymwt-control {
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  cursor: default;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-flex-wrap: wrap;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  justify-content: space-between;
+  min-height: 50px !important;
+  outline: 0 !important;
+  position: relative;
+  -webkit-transition: all 100ms;
+  transition: all 100ms;
+  background-color: hsl(0, 0%, 100%);
+  border-color: hsl(0, 0%, 80%);
+  border-radius: 9px;
+  border-style: solid;
+  border-width: 1px;
+  box-sizing: border-box;
+}
+.design_outter_comman_admin {
+  overflow: unset;
+  border-radius: 6px;
+  background-color: #fff;
+  position: relative;
 }
