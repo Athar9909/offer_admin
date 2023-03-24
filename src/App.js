@@ -31,11 +31,6 @@ import TransactionDetails from "./adminComponent/transactionComponent/transactio
 import { MapContainer } from "./adminComponent/userManagement/mapComponent";
 import User from "./adminComponent/userManagement/user";
 import UserDetails from "./adminComponent/userManagement/userDetails";
-import Home from "./websiteComponent/home";
-import Auction from "./websiteComponent/offersComponent/auction";
-import Free from "./websiteComponent/offersComponent/free";
-import Price from "./websiteComponent/offersComponent/price";
-import TermCondition from "./websiteComponent/termCondition";
 
 function App() {
   return (
@@ -90,14 +85,6 @@ function App() {
         <Route path="/admin/informations" element={<Informations />} />
         <Route path="/admin/contact-us" element={<ContactUs />} />
         <Route path="/admin/help-support-management" element={<Support />} />
-
-        {/*Website Routes*/}
-        <Route path="/" element={<Home />} />
-        <Route path="/term&condition" element={<TermCondition />} />
-        <Route path="/post-offer-price" element={<Price />} />
-        <Route path="/post-offer-auction" element={<Auction />} />
-        <Route path="/post-offer-free" element={<Free />} />
-        {/* <Route path="/map" element={<MapContainer />} /> */}
       </Routes>
     </BrowserRouter>
   );

@@ -11,7 +11,6 @@ import "mdbreact/dist/css/mdb.css";
 if (window.location.href.includes("admin")) {
   require("./assets/css/style.css");
 } else {
-  require("./assets/css/styleWeb.css");
   require("./assets/css/responsive.css");
 }
 
