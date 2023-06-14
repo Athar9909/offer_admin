@@ -36,6 +36,7 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
+        {/* <Route path="*" element={<Login />} /> */}
         <Route path="/admin/login" element={<Login />} />
         <Route path="/admin/forgot-password" element={<ForgotPassword />} />
         <Route path="/admin/otp-verification" element={<OtpVerify />} />

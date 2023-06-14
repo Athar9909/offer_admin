@@ -1,13 +1,43 @@
 import React, { useState } from "react";
 import AdminHeader from "../commonComponent.jsx/adminHeader";
 import AdminSidebar from "../commonComponent.jsx/adminSidebar";
-
+import OwlCarousel from "react-owl-carousel";
+import "owl.carousel/dist/assets/owl.carousel.css";
+import "owl.carousel/dist/assets/owl.theme.default.css";
+import { getAllBanners } from "../httpService/DashboardHttp";
+import { useEffect } from "react";
 function Banner() {
   const [sideBar, setSideBar] = useState(true);
-
+  const [banners, setBanners] = useState([]);
+  const [files, setFiles] = useState([]);
+  useEffect(() => {
+    GETBANNERS();
+  }, []);
   const getBarClick = (val) => {
     console.log(val);
     setSideBar(val);
+  };
+
+  const GETBANNERS = async () => {
+    const { data } = await getAllBanners();
+    if (!data.error) {
+      setBanners(data?.results?.banner);
+    }
+  };
+  const onFileSelection = (e, key, id, ind) => {
+    setFiles({ ...files, [key]: e.target.files[0] });
+    if (e.target.files[0]) {
+      var picture = new FileReader();
+      picture.readAsDataURL(e.target.files[0]);
+      picture.addEventListener("load", function (event) {
+        document.getElementById(ind).setAttribute("src", event.target.result);
+      });
+    }
+  };
+  const BannerStatus = () => {};
+  const onSave = async () => {
+    let formdata = new FormData();
+    formdata.append();
   };
 
   return (
@@ -27,108 +57,124 @@ function Banner() {
 
                       <div className="col-auto">
                         <button
-                          className="comman_btn2 mx-2"
+                          className="comman_btn mx-2 bg-white"
                           data-bs-toggle="modal"
                           data-bs-target="#staticBackdrop4"
                         >
                           Preview
                         </button>
 
-                        <button className="comman_btn2">Save</button>
+                        <button className="comman_btn bg-white mx-2">
+                          Save
+                        </button>
+                        <button className="comman_btn bg-white">
+                          Add Banner
+                        </button>
                       </div>
                     </div>
 
                     <form
-                      className="form-design py-5 px-1 row mx-0 align-items-end justify-content-between"
+                      className="form-design py-5  row  align-items-end justify-content-between"
                       action=""
                     >
-                      <div className="col-md-4">
-                        <div className="row Onboarding_box mb-4 mx-0">
-                          <span className="head_spann">Home Screen 1</span>
-                          <div className="form-group mb-0 col-12">
-                            <div className="banner-profile position-relative">
-                              <div className="banner-Box bg-dark">
-                                <img
-                                  className="home-banner"
-                                  src="../assets/img/admin/Group 3994.png"
-                                />
+                      <OwlCarousel
+                        className="banner_slider "
+                        autoplay={true}
+                        autoplayHoverPause={true}
+                        autoplayTimeout={8000}
+                        rewind={true}
+                        // loop={true}
+                        dots={false}
+                        nav={true}
+                        video={true}
+                        lazyLoad={true}
+                        items={3}
+                      >
+                        {banners?.map((item, ind) => (
+                          <div className="">
+                            <div class="banner_sliders_box ">
+                              <div class="row Onboarding_box mb-4 mx-0">
+                                <span class="head_spann">
+                                  Home Screen {ind + 1}
+                                </span>
+                                <div class="check_toggle">
+                                  <input
+                                    type="checkbox"
+                                    defaultChecked={item?.status}
+                                    name={item?._id}
+                                    id={ind + "df"}
+                                    className=""
+                                    onChange={() => BannerStatus()}
+                                    style={{
+                                      opacity: "0%",
+                                      width: "2rem",
+                                      height: "2rem",
+                                      position: "relative",
+                                      left: "1.2rem",
+                                      top: "1rem",
+                                      zIndex: "9999",
+                                    }}
+                                  />
+                                  <label for={item?._id}></label>
+                                </div>
+                                <div class="form-group mb-0 col-12">
+                                  <div class="banner-profile position-relative">
+                                    <div class="banner-Box bg-dark">
+                                      <img
+                                        class="home-banner"
+                                        id={ind}
+                                        src={
+                                          item?.image
+                                            ? item?.image
+                                            : require("../../assets/img/upload_file.png")
+                                        }
+                                      />
+                                    </div>
+                                    <div class="p-image">
+                                      <i class="upload-button fas fa-camera"></i>
+                                      <input
+                                        class="file-upload"
+                                        type="file"
+                                        id={item?._id}
+                                        accept="image/*"
+                                        onChange={(e) =>
+                                          onFileSelection(
+                                            e,
+                                            `banner${ind}`,
+                                            item?._id,
+                                            ind
+                                          )
+                                        }
+                                        style={{
+                                          opacity: "0%",
+                                          width: "2rem",
+                                          height: "2rem",
+                                          position: "relative",
+                                          zIndex: "9999",
+
+                                          left: "-10px",
+                                          top: "2px",
+                                          cursor: "pointer",
+                                        }}
+                                      />
+                                    </div>
+                                  </div>
+                                </div>
                               </div>
-                              <div className="p-image">
-                                <i className="upload-button fas fa-camera"></i>
-                                <input
-                                  className="file-upload"
-                                  type="file"
-                                  accept="image/*"
-                                />
+                              <div class="row">
+                                <div class="form-group mb-0 col-12">
+                                  <label for="">Upload Url</label>
+                                  <input
+                                    class="form-control"
+                                    defaultValue={item?.url}
+                                    type="text"
+                                  />
+                                </div>
                               </div>
                             </div>
                           </div>
-                        </div>
-                        <div className="row">
-                          <div className="form-group mb-0 col-12">
-                            <label for="">Upload Url</label>
-                            <input className="form-control" type="text" />
-                          </div>
-                        </div>
-                      </div>
-                      <div className="col-md-4">
-                        <div className="row Onboarding_box mb-4 mx-0">
-                          <span className="head_spann">Home Screen 2</span>
-                          <div className="form-group mb-0 col-12">
-                            <div className="banner-profile position-relative">
-                              <div className="banner-Box bg-dark">
-                                <img
-                                  className="home-banner"
-                                  src="../assets/img/admin/Group 3994.png"
-                                />
-                              </div>
-                              <div className="p-image">
-                                <i className="upload-button fas fa-camera"></i>
-                                <input
-                                  className="file-upload"
-                                  type="file"
-                                  accept="image/*"
-                                />
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                        <div className="row">
-                          <div className="form-group mb-0 col-12">
-                            <label for="">Upload Url</label>
-                            <input className="form-control" type="text" />
-                          </div>
-                        </div>
-                      </div>
-                      <div className="col-md-4">
-                        <div className="row Onboarding_box mb-4 mx-0">
-                          <span className="head_spann">Home Screen 3</span>
-                          <div className="form-group mb-0 col-12">
-                            <div className="banner-profile position-relative">
-                              <div className="banner-Box bg-dark">
-                                <img
-                                  className="home-banner"
-                                  src="../assets/img/admin/Group 3994.png"
-                                />
-                              </div>
-                              <div className="p-image">
-                                <i className="upload-button fas fa-camera"></i>
-                                <input
-                                  className="file-upload"
-                                  type="file"
-                                  accept="image/*"
-                                />
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                        <div className="row">
-                          <div className="form-group mb-0 col-12">
-                            <label for="">Upload Url</label>
-                            <input className="form-control" type="text" />
-                          </div>
-                        </div>
-                      </div>
+                        ))}
+                      </OwlCarousel>
                     </form>
                   </div>
                 </div>

@@ -38,7 +38,11 @@ function Login() {
                 <div className="row">
                   <div className="col-12 formheader mb-4">
                     <div className="text-center">
-                      <img src="../assets/img/admin/logo.png" alt="" />
+                      <img
+                        // src="../assets/img/admin/logo.png"
+                        src={require("./../../assets/img/logo1.PNG")}
+                        alt=""
+                      />
                     </div>
                     <h1>Login for Admin Panel</h1>
                     <p>Please enter your email and password</p>

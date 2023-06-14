@@ -1,31 +1,21 @@
 import React, { useEffect, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import AdminHeader from "../commonComponent.jsx/adminHeader";
 import AdminSidebar from "../commonComponent.jsx/adminSidebar";
 import {
   changeOfferStatus,
   getOfferDetails,
 } from "../httpService/DashboardHttp";
 import { GoogleMap, MarkerF, useJsApiLoader } from "@react-google-maps/api";
-import FsLightbox from "fslightbox-react";
 import Lightbox from "yet-another-react-lightbox";
-import Captions from "yet-another-react-lightbox/plugins/captions";
-import Fullscreen from "yet-another-react-lightbox/plugins/fullscreen";
-import Slideshow from "yet-another-react-lightbox/plugins/slideshow";
-import Thumbnails from "yet-another-react-lightbox/plugins/thumbnails";
 import Video from "yet-another-react-lightbox/plugins/video";
-import Zoom from "yet-another-react-lightbox/plugins/zoom";
 import "yet-another-react-lightbox/plugins/thumbnails.css";
 import "yet-another-react-lightbox/styles.css";
 
 function OfferDetails() {
-  const [slides, setSlides] = useState();
-  const [basicExampleOpen, setBasicExampleOpen] = useState(false);
   const [open, setOpen] = useState(false);
   const location = useLocation();
   const [postedTime, setPostedTime] = useState();
   const [offerDetails, setOfferDetails] = useState([]);
-  const [toggler, setToggler] = useState(false);
   const [offerId, setOfferId] = useState();
   const [change, setChange] = useState();
   const [slide, setSlide] = useState();
@@ -56,7 +46,6 @@ function OfferDetails() {
     setSlide();
   };
 
-  // map
   const position = {
     lat: offerDetails?.location?.latitude
       ? offerDetails?.location?.latitude
@@ -146,16 +135,8 @@ function OfferDetails() {
         });
       }
     });
-
     return slide;
   };
-
-  // const slidesImages = (offerDetails?.images || [])?.map((item) => ({
-  //   src:
-  //     item?.mime_type === "image"
-  //       ? item?.url
-  //       : require("../../assets/img/upload_file.png"),
-  // }));
 
   return (
     <>
@@ -255,7 +236,9 @@ function OfferDetails() {
                                         onClick={() => setOpen(true)}
                                       />
                                     )}
-                                    <span className="label_s">Free</span>
+                                    <span className="label_s">
+                                      {offerDetails?.type}
+                                    </span>
                                   </div>
                                 ))}
                               </div>
@@ -951,15 +934,6 @@ function OfferDetails() {
         slides={getSlides()}
         plugins={[Video]}
       />
-      {/* {console.log(offerDetails?.cover_image)}
-      <FsLightbox
-        toggler={toggler}
-        sources={[
-          "https://i.imgur.com/fsyrScY.jpg",
-          "https://www.youtube.com/watch?v=3nQNiWdeH2Q",
-          "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
-        ]}
-      /> */}
     </>
   );
 }

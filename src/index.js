@@ -8,6 +8,7 @@ import HttpApi from "i18next-http-backend";
 import App from "./App";
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import "mdbreact/dist/css/mdb.css";
+import "../src/assets/css/style.css";
 if (window.location.href.includes("admin")) {
   require("./assets/css/style.css");
 } else {

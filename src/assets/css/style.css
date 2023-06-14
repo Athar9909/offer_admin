@@ -1619,7 +1619,7 @@ strong.box_tag_left {
 .banner-profile .p-image {
   position: absolute;
   top: 10px;
-  right: -5px;
+  right: -7px;
   background-color: #ffffff;
   color: #e0dce1;
   width: 28px;
@@ -1634,9 +1634,11 @@ strong.box_tag_left {
 }
 .banner-profile .p-image i {
   color: #081424;
+  position: relative;
+  left: 5px;
 }
 .banner-profile .file-upload {
-  display: none;
+  opacity: 100%;
 }
 .calender-year {
   color: #fff;
@@ -2008,4 +2010,84 @@ input::-webkit-inner-spin-button {
   border-radius: 6px;
   background-color: #fff;
   position: relative;
+}
+.banner_sliders_box {
+  margin-top: 10px;
+  padding: 0 1rem;
+}
+.Onboarding_box {
+  border: 2px solid #f2f2f2;
+  border-radius: 10px;
+  position: relative;
+  padding: 25px 8px;
+}
+.head_spann {
+  display: inline-block;
+  position: absolute;
+  top: -11px;
+  background-color: #fff;
+  width: auto;
+  font-weight: 600;
+  font-size: 15px;
+}
+.Onboarding_box .banner-Box {
+  width: 100%;
+  height: 180px;
+  border-radius: 10px;
+}
+.Onboarding_box .banner-profile .banner-Box .home-banner {
+  max-width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+.Onboarding_box .banner-Box .p-image {
+  top: 20px !important;
+  right: -12px !important;
+}
+.banner_slider {
+  padding: 0 2.3rem 0 2.2rem;
+}
+.banner_slider button span {
+  display: block;
+  margin-top: -4px;
+}
+.banner_slider .owl-prev {
+  border-radius: 0 30px 30px 0;
+}
+.banner_slider .owl-next {
+  border-radius: 30px 0 0 30px;
+}
+
+.banner_slider button {
+  height: 50px;
+  width: 50px;
+  background-color: transparent !important;
+  color: #000 !important;
+  border-radius: 50%;
+  font-size: 40px !important;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid #ff3f55 !important;
+  transition: 0.5s all;
+}
+
+.banner_slider .owl-nav {
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  margin: 0 auto;
+  left: 0;
+  right: 0;
+  transform: translateY(-50%);
+}
+.banner_sliders_box .check_toggle {
+  margin: 0;
+  position: absolute;
+  top: -40px;
+  right: 10px;
+  left: auto;
+  text-align: end;
 }

@@ -13,7 +13,10 @@ function AdminSidebar({ getBarClick }) {
   const navigate = useNavigate();
   console.log(currentLangCode);
   let token = localStorage?.getItem("admin-log-token");
-  let AdminDetails = JSON.parse(localStorage?.getItem("admin-data"));
+  let AdminDetails =
+    localStorage?.getItem("admin-data") !== "undefined"
+      ? JSON?.parse(localStorage?.getItem("admin-data"))
+      : [];
 
   console.log(AdminDetails);
 
@@ -46,7 +49,7 @@ function AdminSidebar({ getBarClick }) {
         <div className="siderbar_inner">
           <div className="sidebar_logo">
             <Link to="">
-              <img src="../assets/img/admin/logo.png" alt="Logo" />{" "}
+              <img src={require("./../../assets/img/logo1.PNG")} alt="Logo" />{" "}
             </Link>
           </div>
           <diV className="sidebar_menus">

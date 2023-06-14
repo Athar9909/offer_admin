@@ -381,9 +381,9 @@ function Category() {
                                             "Special Character not allowed!",
                                         },
                                         maxLength: {
-                                          value: 15,
+                                          value: 100,
                                           message:
-                                            "Max length is 15 characters!",
+                                            "Max length is 100 characters!",
                                         },
                                       })}
                                     />
@@ -412,9 +412,9 @@ function Category() {
                                         //   message: "Only Arabic Characters are allowed!",
                                         // },
                                         maxLength: {
-                                          value: 15,
+                                          value: 100,
                                           message:
-                                            "Max length is 15 characters!",
+                                            "Max length is 100 characters!",
                                         },
                                       })}
                                     />

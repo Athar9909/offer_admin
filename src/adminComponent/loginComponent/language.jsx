@@ -13,7 +13,7 @@ function Language() {
               <div className="login_page_form shadow">
                 <div className="row">
                   <div className="col-12 formheader mb-4 text-center">
-                    <img src="../assets/img/admin/logo.png" alt="" />
+                    <img src={require("./../../assets/img/logo1.PNG")} alt="" />
                     <h1>Choose Your Language</h1>
                   </div>
                   <div className="col-12">

@@ -299,13 +299,9 @@ const SubCategory = () => {
                 name="category"
                 id=""
               >
-                <option value="" selected="">
-                  Select Category
-                </option>
+                <option selected="">Select Category</option>
                 {(categories || [])?.map((item, ind) => (
-                  <option value={item?._id}>
-                    {item?.name_en + "--" + item?.name_ar}
-                  </option>
+                  <option value={item?._id}>{item?.name_en}</option>
                 ))}
               </select>
               {errors.category && (
@@ -329,8 +325,8 @@ const SubCategory = () => {
                     message: "Special Character not allowed!",
                   },
                   maxLength: {
-                    value: 15,
-                    message: "Max length is 15 characters!",
+                    value: 100,
+                    message: "Max length is 100 characters!",
                   },
                 })}
               />
@@ -357,8 +353,8 @@ const SubCategory = () => {
                     message: "Special Character not allowed!",
                   },
                   maxLength: {
-                    value: 15,
-                    message: "Max length is 15 characters!",
+                    value: 100,
+                    message: "Max length is 100 characters!",
                   },
                 })}
               />

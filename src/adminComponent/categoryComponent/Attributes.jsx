@@ -346,13 +346,9 @@ const Attributes = () => {
                 })}
                 name="category"
               >
-                <option value="" selected="">
-                  Select Category
-                </option>
+                <option selected="">Select Category</option>
                 {(categories || [])?.map((item, ind) => (
-                  <option value={item?._id}>
-                    {item?.name_en + "--" + item?.name_ar}
-                  </option>
+                  <option value={item?._id}>{item?.name_en}</option>
                 ))}
               </select>
               {errors.category && (
@@ -375,13 +371,9 @@ const Attributes = () => {
                 })}
                 name="SubCategory"
               >
-                <option value="" selected="">
-                  Select Category
-                </option>
+                <option selected="">Select Category</option>
                 {(subCategories || [])?.map((item, ind) => (
-                  <option value={item?._id}>
-                    {item?.name_en + "--" + item?.name_ar}
-                  </option>
+                  <option value={item?._id}>{item?.name_en}</option>
                 ))}
               </select>
               {errors.SubCategory && (
@@ -401,13 +393,9 @@ const Attributes = () => {
                 })}
                 name="subSubCategory"
               >
-                <option value="" selected="">
-                  Select Category
-                </option>
+                <option selected="">Select</option>
                 {(subSubCategories || [])?.map((item, ind) => (
-                  <option value={item?._id}>
-                    {item?.name_en + "--" + item?.name_ar}
-                  </option>
+                  <option value={item?._id}>{item?.name_en}</option>
                 ))}
               </select>
               {errors.subSubCategory && (
@@ -431,8 +419,8 @@ const Attributes = () => {
                     message: "Special Character not allowed!",
                   },
                   maxLength: {
-                    value: 15,
-                    message: "Max length is 15 characters!",
+                    value: 100,
+                    message: "Max length is 100 characters!",
                   },
                 })}
               />
@@ -459,8 +447,8 @@ const Attributes = () => {
                     message: "Special Character not allowed!",
                   },
                   maxLength: {
-                    value: 15,
-                    message: "Max length is 15 characters!",
+                    value: 100,
+                    message: "Max length is 100 characters!",
                   },
                 })}
               />

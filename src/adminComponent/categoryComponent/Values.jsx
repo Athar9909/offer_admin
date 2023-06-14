@@ -363,13 +363,9 @@ const Values = () => {
                 })}
                 name="category"
               >
-                <option value="" selected="">
-                  Select Category
-                </option>
+                <option selected="">Select Category</option>
                 {(categories || [])?.map((item, ind) => (
-                  <option value={item?._id}>
-                    {item?.name_en + "--" + item?.name_ar}
-                  </option>
+                  <option value={item?._id}>{item?.name_en}</option>
                 ))}
               </select>
 
@@ -393,13 +389,9 @@ const Values = () => {
                 })}
                 name="SubCategory"
               >
-                <option value="" selected="">
-                  Select Sub Category
-                </option>
+                <option selected="">Select Sub Category</option>
                 {(subCategories || [])?.map((item, ind) => (
-                  <option value={item?._id}>
-                    {item?.name_en + "--" + item?.name_ar}
-                  </option>
+                  <option value={item?._id}>{item?.name_en}</option>
                 ))}
               </select>
               {errors.SubCategory && (
@@ -422,13 +414,9 @@ const Values = () => {
                 })}
                 name="subSubCategory"
               >
-                <option value="" selected="">
-                  Select Sub-Sub Category
-                </option>
+                <option selected="">Select Sub-Sub Category</option>
                 {(subSubCategories || [])?.map((item, ind) => (
-                  <option value={item?._id}>
-                    {item?.name_en + "--" + item?.name_ar}
-                  </option>
+                  <option value={item?._id}>{item?.name_en}</option>
                 ))}
               </select>
               {errors.subSubCategory && (
@@ -448,13 +436,9 @@ const Values = () => {
                 })}
                 name="attributes"
               >
-                <option value="" selected="">
-                  Select Attribute
-                </option>
+                <option selected="">Select Attribute</option>
                 {(Attributes || [])?.map((item, ind) => (
-                  <option value={item?._id}>
-                    {item?.name_en + "--" + item?.name_ar}
-                  </option>
+                  <option value={item?._id}>{item?.name_en}</option>
                 ))}
               </select>
 
@@ -480,8 +464,8 @@ const Values = () => {
                     message: "Special Character not allowed!",
                   },
                   maxLength: {
-                    value: 15,
-                    message: "Max length is 15 characters!",
+                    value: 100,
+                    message: "Max length is 100 characters!",
                   },
                 })}
               />
@@ -508,8 +492,8 @@ const Values = () => {
                     message: "Special Character not allowed!",
                   },
                   maxLength: {
-                    value: 15,
-                    message: "Max length is 15 characters!",
+                    value: 100,
+                    message: "Max length is 100 characters!",
                   },
                 })}
               />
